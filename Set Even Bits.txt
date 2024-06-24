@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    int result = 0;
+    int position = 1;
+
+    while (num > 0) {
+        if (position % 2 == 0) {  // even position bit
+            result |= 1;  // set bit to 1
+        }
+
+        num >>= 1;  // right shift to check the next bit
+        position++;
+        result <<= 1;  // left shift to make space for the next bit
+    }
+
+    printf("Result: %d\n", result);
+
+    return 0;
+}

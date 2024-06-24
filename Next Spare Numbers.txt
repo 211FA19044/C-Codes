@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+// Function to find the next sparse number
+int FindSparse(int num) {
+    while (num & (num << 1)) {
+        num++;
+    }
+    return num;
+}
+
+// Function to replace each element with its next sparse number in the array
+void ReplaceWithNextSparse(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i] = FindSparse(arr[i]);
+    }
+}
+
+int main() {
+    int size;
+
+    // Get the array size from the user
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int arr[size];
+
+    // Get the array elements from the user
+    printf("Enter %d elements of the array: ", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Replace elements with next sparse numbers
+    ReplaceWithNextSparse(arr, size);
+
+    // Print the result
+    printf("Resulting array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+void convertToMagicalString(char *str) {
+    int len = strlen(str);
+
+    for (int i = 0; i < len; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            str[i] = 'a' + ('z' - str[i]);
+        } else if (str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] = 'A' + ('Z' - str[i]);
+        }
+    }
+}
+
+int main() {
+    char input[100];
+
+    // Input string
+    printf("Enter the string: ");
+    scanf("%s", input);
+
+    // Convert to magical string
+    convertToMagicalString(input);
+
+    // Output magical string
+    printf("Magical string: %s\n", input);
+
+    return 0;
+}

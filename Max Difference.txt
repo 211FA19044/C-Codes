@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+void smallest_string(char* str) {
+    int n = strlen(str);
+    int i;
+    for (i = 0; i < n - 1; i++) {
+        if (str[i] > str[i+1]) {
+            break;
+        }
+    }
+    // If no such character is found, remove the last character
+    if (i == n - 1) {
+        i--;
+    }
+    // Print the string after removing the i-th character
+    for (int j = 0; j < n; j++) {
+        if (j != i) {
+            printf("%c", str[j]);
+        }
+    }
+}
+
+int main() {
+    char str[100];
+    fgets(str,sizeof(str),stdin);
+    smallest_string(str);
+    return 0;
+}
+lexicographically smallest string
